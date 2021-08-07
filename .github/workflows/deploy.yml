@@ -24,8 +24,9 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Build with Maven
+    - name: Build project.
+      run: mvn -B package --file pom.xml
+    - name: Policy setting process.
       run: ./deploy.sh
       shell: bash
       working-directory: .github/script
-      # run: mvn -B package --file pom.xml
