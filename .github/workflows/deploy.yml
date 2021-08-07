@@ -25,6 +25,8 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      run: cd ../../
-      run: pwd
-      run: mvn -B package --file pom.xml
+      run: ./deploy.sh
+      shell: bash
+      working-directory: script
+      work
+      # run: mvn -B package --file pom.xml
