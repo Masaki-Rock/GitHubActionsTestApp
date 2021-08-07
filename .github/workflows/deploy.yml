@@ -28,5 +28,4 @@ jobs:
       run: ./deploy.sh
       shell: bash
       working-directory: script
-      work
       # run: mvn -B package --file pom.xml
