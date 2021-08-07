@@ -1,17 +1,20 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Java CI with Maven
+name: CloudHubのビルドスクリプト
 
+# トリガーの設定
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
+# ジョブの設定
 jobs:
+  # ビルドスクリプト
   build:
-
+    # 仮想環境
     runs-on: ubuntu-latest
 
     steps:
@@ -22,4 +25,6 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      run: mvn -B package --file ../../pom.xml
+      run: cd ../../
+      run: pwd
+      run: mvn -B package --file pom.xml
