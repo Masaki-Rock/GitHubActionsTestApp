@@ -1,0 +1,103 @@
+#%RAML 1.0
+baseUri: https://api.accenture.com/
+title: TLSTestAPI
+version: v1
+
+/accounts:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "accounts": [
+                  {
+                    "Id" : "0012x000009umi3AAA",
+                    "Name" : "AccountTree1",
+                    "CleanStatus" : "Pending",
+                    "Website" : "www.salesforce2.com",
+                    "Industry" : "Banking",
+                    "NumberOfEmployees" : 100,
+                    "OwnerId" : "0052x000002EsZBAA0",
+                    "Phone" : "1234567890",
+                    "PhotoUrl" : "/services/images/photo/0012x000009umi3AAA",
+                    "SystemModstamp" : "2020-07-23T02:57:09.000+0000",
+                    "CreatedById" : "0052x000002EsZBAA0",
+                    "CreatedDate" : "2020-07-23T02:57:09.000+0000"
+                  },
+                  {
+                    "Id" : "0012x000009umi3AAA",
+                    "Name" : "AccountTree2",
+                    "CleanStatus" : "Pending",
+                    "Website" : "www.salesforce2.com",
+                    "Industry" : "Banking",
+                    "NumberOfEmployees" : 100,
+                    "OwnerId" : "0052x000002EsZBAA0",
+                    "Phone" : "1234567890",
+                    "PhotoUrl" : "/services/images/photo/0012x000009umi3AAA",
+                    "SystemModstamp" : "2020-07-23T02:57:09.000+0000",
+                    "CreatedById" : "0052x000002EsZBAA0",
+                    "CreatedDate" : "2020-07-23T02:57:09.000+0000"
+                  },
+                  {
+                    "Id" : "0012x000009umi3AAA",
+                    "Name" : "AccountTree3",
+                    "CleanStatus" : "Pending",
+                    "Website" : "www.salesforce2.com",
+                    "Industry" : "Banking",
+                    "NumberOfEmployees" : 100,
+                    "OwnerId" : "0052x000002EsZBAA0",
+                    "Phone" : "1234567890",
+                    "PhotoUrl" : "/services/images/photo/0012x000009umi3AAA",
+                    "SystemModstamp" : "2020-07-23T02:57:09.000+0000",
+                    "CreatedById" : "0052x000002EsZBAA0",
+                    "CreatedDate" : "2020-07-23T02:57:09.000+0000"
+                  }
+                ]
+              }
+/account/{ID}:
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "account": {
+                  "Id" : "0012x000009umi3AAA",
+                  "Name" : "AccountTree1",
+                  "CleanStatus" : "Pending",
+                  "Website" : "www.salesforce2.com",
+                  "Industry" : "Banking",
+                  "NumberOfEmployees" : 100,
+                  "OwnerId" : "0052x000002EsZBAA0",
+                  "Phone" : "1234567890",
+                  "PhotoUrl" : "/services/images/photo/0012x000009umi3AAA",
+                  "SystemModstamp" : "2020-07-23T02:57:09.000+0000",
+                  "CreatedById" : "0052x000002EsZBAA0",
+                  "CreatedDate" : "2020-07-23T02:57:09.000+0000"
+                }
+              }
+  patch:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "account": {
+                  "Id" : "0012x000009umi3AAA",
+                  "Name" : "AccountTree1",
+                  "CleanStatus" : "Pending",
+                  "Website" : "www.salesforce2.com",
+                  "Industry" : "Banking",
+                  "NumberOfEmployees" : 100,
+                  "OwnerId" : "0052x000002EsZBAA0",
+                  "Phone" : "1234567890",
+                  "PhotoUrl" : "/services/images/photo/0012x000009umi3AAA",
+                  "SystemModstamp" : "2020-07-23T02:57:09.000+0000",
+                  "CreatedById" : "0052x000002EsZBAA0",
+                  "CreatedDate" : "2020-07-23T02:57:09.000+0000"
+                }
+              }
