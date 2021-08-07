@@ -27,5 +27,5 @@ jobs:
     - name: Build with Maven
       run: deploy.sh
       shell: bash
-      working-directory: ./github/script
+      working-directory: .github/script
       # run: mvn -B package --file pom.xml
