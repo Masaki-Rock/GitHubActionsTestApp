@@ -14,7 +14,6 @@ on:
 jobs:
   # ビルドスクリプト
   build:
-    # 仮想環境
     runs-on: ubuntu-latest
     
     steps:
@@ -26,7 +25,9 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn clean package -nsu -DskipMunitTests
-
+  // デプロイスクリプト
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
