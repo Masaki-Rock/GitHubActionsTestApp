@@ -56,10 +56,9 @@ version: v1
                   }
                 ]
               }
-/account/{ID}:
   post:
     responses:
-      200:
+      201:
         body:
           application/json:
             example: |
@@ -78,6 +77,27 @@ version: v1
                   "CreatedById" : "0052x000002EsZBAA0",
                   "CreatedDate" : "2020-07-23T02:57:09.000+0000"
                 }
+              }
+/account/{ID}:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Id" : "0012x000009umi3AAA",
+                "Name" : "AccountTree1",
+                "CleanStatus" : "Pending",
+                "Website" : "www.salesforce2.com",
+                "Industry" : "Banking",
+                "NumberOfEmployees" : 100,
+                "OwnerId" : "0052x000002EsZBAA0",
+                "Phone" : "1234567890",
+                "PhotoUrl" : "/services/images/photo/0012x000009umi3AAA",
+                "SystemModstamp" : "2020-07-23T02:57:09.000+0000",
+                "CreatedById" : "0052x000002EsZBAA0",
+                "CreatedDate" : "2020-07-23T02:57:09.000+0000"
               }
   patch:
     responses:
@@ -100,4 +120,52 @@ version: v1
                   "CreatedById" : "0052x000002EsZBAA0",
                   "CreatedDate" : "2020-07-23T02:57:09.000+0000"
                 }
+              }
+  delete:
+    responses:
+      204:
+        body:
+          application/json:
+            example: { }
+/account/{ID}/contracts:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Id" : "0012x000009umi3AAA",
+                "Name" : "AccountTree1",
+                "CleanStatus" : "Pending",
+                "Website" : "www.salesforce2.com",
+                "Industry" : "Banking",
+                "NumberOfEmployees" : 100,
+                "OwnerId" : "0052x000002EsZBAA0",
+                "Phone" : "1234567890",
+                "PhotoUrl" : "/services/images/photo/0012x000009umi3AAA",
+                "SystemModstamp" : "2020-07-23T02:57:09.000+0000",
+                "CreatedById" : "0052x000002EsZBAA0",
+                "CreatedDate" : "2020-07-23T02:57:09.000+0000"
+              }
+/account/{accountID}/contract/{contractID}:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Id" : "0012x000009umi3AAA",
+                "Name" : "AccountTree1",
+                "CleanStatus" : "Pending",
+                "Website" : "www.salesforce2.com",
+                "Industry" : "Banking",
+                "NumberOfEmployees" : 100,
+                "OwnerId" : "0052x000002EsZBAA0",
+                "Phone" : "1234567890",
+                "PhotoUrl" : "/services/images/photo/0012x000009umi3AAA",
+                "SystemModstamp" : "2020-07-23T02:57:09.000+0000",
+                "CreatedById" : "0052x000002EsZBAA0",
+                "CreatedDate" : "2020-07-23T02:57:09.000+0000"
               }

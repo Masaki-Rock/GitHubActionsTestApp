@@ -1,3 +1,2 @@
 #!/bin/bash
-
-echo "execute"
+java -jar app.jar
