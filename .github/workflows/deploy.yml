@@ -25,7 +25,8 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn clean package -nsu -DskipMunitTests
-  // デプロイスクリプト
+        
+  # デプロイスクリプト
   deploy:
     runs-on: ubuntu-latest
     steps:
