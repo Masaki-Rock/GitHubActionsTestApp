@@ -26,6 +26,6 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -nsu -DskipMunitTests
       - name: MuleSoft API and Application Settings.
-        run: java -jar ./app.jar -all
+        run: java -jar app.jar -all
         shell: bash
         working-directory: .github/script
