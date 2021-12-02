@@ -1,0 +1,77 @@
+env: Dev
+
+apiInstance:
+  assetId: account
+  apiInstanceLabel: Development
+
+runtime:
+  domain: account-v1
+  filename: ../../target/account-v1-1.0.0-mule-application.jar
+  apiIDkey: api.id
+  runtimeVersion: 4.3.0
+  worker:
+    vCore: "0.2"
+    workers: 1
+    region: us-east-1
+  properties:
+    api.id: "17469184"
+    anypoint.platform.client_id: 4758bdefaa45445f9f66dcb624f4e53b
+    anypoint.platform.client_secre: 779Acc635fC840749b5C3C63B863Ecc8
+    env: st
+  automaticallyRestart: true
+  persistentQueues: false
+  enableMonitoring: true
+
+tiers:
+  - tier:
+    name: DevOps SLA Tier
+    description: DevOps登録
+    autoApprove: true
+    maximumRequests: 5
+    timePeriodInMilliseconds: 1
+
+policies:
+ jwt-validation:
+   jwtKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiHeueaNGgYV6vyU/gHxFjcJ0aoLa3amxvPPdr5vd35qiKvpsBMV1oVyW5IwfDiBeF6kw5i9ZgbMshakmmVJdbgH4AE+cg2bWfAjTOIMN+1HdBlcbnBIZbn91nvmXAp/UYx+1EtRfur5Ykh481olKziuEyFuWgjB14WGyGz/uuPn8X2PlkNKrB983YrlXGwrkEtQpovDoj2L+ukKgKnVeIIrg3nQ6YHPTAC2ZOgYkVGY/gzUxba7Gj6BjV3m00FZArv2EnMfV0j/+VCC8CcknBIjLz9EgN/Z91L6zmEJT6D9ZVH78lDhpuX5miN1aIc4v/se2xZwGKHQCTxwwEZifqwIDAQAB
+   clientIDExpression: "#[if(vars.claimSet.sub?) read(vars.claimSet.sub,'application/json').\"client_id\" else {}]"
+   audienceClaimValues: api.sample.co.jp
+ rate-limiting-sla-based:
+   clientIDExpression: "#[if(authentication.properties.claims.sub?) read(authentication.properties.claims.sub,'application/json').\"client_id\" else {}]"
+ header-injection:
+   inboundItem: x-user-info
+   inboundValue: "#[if(read(authentication.properties.claims.sub,'application/json').user_info?)read(authentication.properties.claims.sub,'application/json').user_info else {}]"
+ header-removal:
+ message-logging:
+
+alerts:
+ - jwt-validation
+ - rate-limiting-sla-based
+ - api-response-time
+ - api-response-code-500
+ - api-response-code-400
+ - api-request-count
+
+runtimeAlerts:
+ - cpu
+ - deployment-failed
+ - memory
+ - worker-unresponsive
+ - application-notification
+ - event-threshold-exceeded
+
+alertRecipients:
+ - user:
+   userId: 4b95a083-ba48-4745-aa79-f4a8b4f610e4
+   lastName: Kawaguchi
+   firstName: Masaki
+ - user:
+   userId: 5ebd38e6-fde2-4967-811c-9461c998d49e
+   lastName: Yamamoto
+   firstName: Tarou
+ - user:
+   userId: fac27650-0433-4618-a613-4b171f1816bb
+   lastName: Kimura
+   firstName: Hanako
+   
+mvn:
+  command: mvn clean package -nsu -DskipMunitTests

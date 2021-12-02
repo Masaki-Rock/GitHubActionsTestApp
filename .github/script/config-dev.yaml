@@ -1,0 +1,16 @@
+connectedApplication:
+  clientId: 9394559f2bb1486aa610b70986be9aba
+  clientSecret: 12366977330341838C4Da68803FA6e04
+  grantType: client_credentials
+
+organization:
+  organizationId: 20a8a66a-84f2-4c29-b725-bd179ed64121
+  enviromentIds:
+    deveper: f7edb165-c18a-48fa-a739-5971221a1b7e
+    integration:
+    staging:
+    production:
+
+project:
+  config:
+    path: ../../project-dev.yaml
