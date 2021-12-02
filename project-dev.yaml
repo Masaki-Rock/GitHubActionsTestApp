@@ -74,4 +74,4 @@ alertRecipients:
    firstName: Hanako
    
 mvn:
-  command: mvn clean package -nsu -DskipMunitTests
+  command: mvn clean package -nsu -DskipMunitTests 
