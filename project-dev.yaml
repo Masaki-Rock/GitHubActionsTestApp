@@ -8,7 +8,7 @@ runtime:
   domain: account-v1
   filename: ../../target/account-v1-1.0.0-mule-application.jar
   apiIDkey: api.id
-  runtimeVersion: 4.3.0
+  runtimeVersion: 4.4.0
   worker:
     vCore: "0.2"
     workers: 1
@@ -16,7 +16,8 @@ runtime:
   properties:
     api.id: "17469184"
     anypoint.platform.client_id: 4758bdefaa45445f9f66dcb624f4e53b
-    anypoint.platform.client_secre: 779Acc635fC840749b5C3C63B863Ecc8
+    anypoint.platform.client_secret: 779Acc635fC840749b5C3C63B863Ecc8
+    anypoint.platform.analytics_base_uri: https://analytics-ingest.anypoint.mulesoft.com/
     env: st
   automaticallyRestart: true
   persistentQueues: false
