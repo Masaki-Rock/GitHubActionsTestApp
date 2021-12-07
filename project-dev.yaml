@@ -1,9 +1,12 @@
+# 環境設定<Dev|IT|ST|Prod|DR>
 env: Dev
 
+# APIインスタンス
 apiInstance:
   assetId: account
   apiInstanceLabel: Development
 
+# ランタイム
 runtime:
   domain: account-v1
   filename: ../../target/account-v1-1.0.0-mule-application.jar
@@ -23,6 +26,7 @@ runtime:
   persistentQueues: false
   enableMonitoring: true
 
+# SLA層
 tiers:
   - tier:
     name: DevOps SLA Tier
@@ -31,19 +35,26 @@ tiers:
     maximumRequests: 5
     timePeriodInMilliseconds: 1
 
+# ポリシー
 policies:
+ # JWT検証ポリシー
  jwt-validation:
    jwtKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiHeueaNGgYV6vyU/gHxFjcJ0aoLa3amxvPPdr5vd35qiKvpsBMV1oVyW5IwfDiBeF6kw5i9ZgbMshakmmVJdbgH4AE+cg2bWfAjTOIMN+1HdBlcbnBIZbn91nvmXAp/UYx+1EtRfur5Ykh481olKziuEyFuWgjB14WGyGz/uuPn8X2PlkNKrB983YrlXGwrkEtQpovDoj2L+ukKgKnVeIIrg3nQ6YHPTAC2ZOgYkVGY/gzUxba7Gj6BjV3m00FZArv2EnMfV0j/+VCC8CcknBIjLz9EgN/Z91L6zmEJT6D9ZVH78lDhpuX5miN1aIc4v/se2xZwGKHQCTxwwEZifqwIDAQAB
    clientIDExpression: "#[if(vars.claimSet.sub?) read(vars.claimSet.sub,'application/json').\"client_id\" else {}]"
    audienceClaimValues: api.sample.co.jp
+ # SLAベースレイトリミット制限
  rate-limiting-sla-based:
    clientIDExpression: "#[if(authentication.properties.claims.sub?) read(authentication.properties.claims.sub,'application/json').\"client_id\" else {}]"
+ # ヘッダー挿入
  header-injection:
    inboundItem: x-user-info
    inboundValue: "#[if(read(authentication.properties.claims.sub,'application/json').user_info?)read(authentication.properties.claims.sub,'application/json').user_info else {}]"
+ # ヘッダー削除
  header-removal:
+ # メッセージロギング
  message-logging:
 
+# アラート
 alerts:
  - jwt-validation
  - rate-limiting-sla-based
@@ -52,6 +63,7 @@ alerts:
  - api-response-code-400
  - api-request-count
 
+# ランタイムアラート
 runtimeAlerts:
  - cpu
  - deployment-failed
@@ -60,6 +72,8 @@ runtimeAlerts:
  - application-notification
  - event-threshold-exceeded
 
+# アラート受信者
+# APIアラートとランタイムアラート両方の受信者を設定する。
 alertRecipients:
  - user:
    userId: 4b95a083-ba48-4745-aa79-f4a8b4f610e4
@@ -73,6 +87,3 @@ alertRecipients:
    userId: fac27650-0433-4618-a613-4b171f1816bb
    lastName: Kimura
    firstName: Hanako
-   
-mvn:
-  command: mvn clean package -DattachMuleSources

@@ -1,8 +1,10 @@
+# 接続アプリケーション
 connectedApplication:
   clientId: 9394559f2bb1486aa610b70986be9aba
   clientSecret: 12366977330341838C4Da68803FA6e04
   grantType: client_credentials
 
+# 組織情報
 organization:
   organizationId: 20a8a66a-84f2-4c29-b725-bd179ed64121
   enviromentIds:
@@ -11,6 +13,7 @@ organization:
     staging:
     production:
 
+# 個別設定ファイル
 project:
   config:
     path: ../../project-dev.yaml
