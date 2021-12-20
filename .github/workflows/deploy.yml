@@ -1,18 +1,21 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+name: MuleSoft CD process script
 
-name: CloudHubのビルドスクリプト
-
-# トリガーの設定
+# Trigger settings
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      org:
+        description: 'Deploy Environment.'
+        required: true
+        default: 'SalesDept'
+      env:
+        description: 'Deploy Bussines group.'
+        required: false
+        default: 'Dev'
 
-# ジョブの設定
+# Job settings
 jobs:
-  # ビルドスクリプト
+  # build script
   build:
     runs-on: ubuntu-latest
     
@@ -23,9 +26,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build with Maven
-        run: mvn clean package -DattachMuleSources
-      - name: MuleSoft API and Application Settings.
-        run: java -jar app.jar -all
+      - name: Echo input parameter.
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in ${{ github.event.inputs.home }}!"
+      
+      - name: Upload the Mule application file to the release folder.
+        run: java -jar app.jar -gitrelease -org ${{ github.event.inputs.org }}! -env ${{ github.event.inputs.env }}!
         shell: bash
         working-directory: .github/script
