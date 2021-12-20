@@ -1,0 +1,39 @@
+# 接続アプリケーション
+connectedApplication:
+  clientId: a2781dfe4e2d4e1b85ef7890d58a8b1a
+  clientSecret: da6387f9abA8418A93289d9Ae6Fb997b
+  grantType: client_credentials
+
+# 組織情報
+organization:
+  SalesDept:
+    id: b48400b3-292e-46ac-b1ea-8bb524c94163
+    Dev:
+      id: cbd3f375-69fb-4241-85a8-63e5a31ad82a
+      clientID: 173931b88e1041529f7310520415db59
+      clientSercret: 04E36471F63f43b58f9B059C25CBcF3f
+    Prod:
+      id: 1a4ded27-78a3-40c7-b28c-e4fb43b268e5
+      clientID: a68fca83ca334e9591ba3ad9c60c2d6c
+      clientSercret: F23f89E93C614575bC67Ab348Ac921A6
+  CostomerService:
+    id: cb1a129c-cc5e-4964-9869-9829da797317
+    Dev:
+      id: 4409c12e-2bd2-4e00-b30e-330cc7bdf039
+      clientID: 048eef1b0bd34bbaa7cff67215069cdd
+      clientSercret: 00e8cAb0CB804f56A2C10794f960a04d
+    Prod:
+      id: d881d877-d550-4ac6-a73e-3f05e675e7be
+      clientID: de35bf82d7ff45558fece3d43a2eebd6
+      clientSercret: CF455e33353143AdbBc4b89C34F857C0
+
+# 個別設定ファイル
+project:
+  config:
+    path: ../../project-dev.yaml
+    
+# GitHub
+github:
+  accountID: Masaki-Rock
+  repositoryID: GitHubActionsTestApp
+  accessToken: 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
