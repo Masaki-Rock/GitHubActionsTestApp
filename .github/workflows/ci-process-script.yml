@@ -10,7 +10,7 @@ on:
 # Job settings
 jobs:
   # build script
-  build:
+  application-build:
     runs-on: ubuntu-latest
     
     steps:

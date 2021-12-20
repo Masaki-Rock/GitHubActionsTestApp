@@ -103,5 +103,5 @@ alertRecipients:
 
 # リリース管理名
 github:
- releaseName: account-0.0.1
+ releaseName: account-0.0.2
  fileName: account-%s.jar
