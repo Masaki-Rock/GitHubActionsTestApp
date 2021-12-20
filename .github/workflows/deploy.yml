@@ -16,7 +16,7 @@ on:
 # Job settings
 jobs:
   # build script
-  build:
+  release:
     runs-on: ubuntu-latest
     
     steps:

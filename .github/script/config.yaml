@@ -30,7 +30,7 @@ organization:
 # 個別設定ファイル
 project:
   config:
-    path: ../../project-dev.yaml
+    path: ../../project.yaml
     
 # GitHub
 github:
