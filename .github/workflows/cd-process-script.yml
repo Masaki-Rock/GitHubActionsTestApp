@@ -28,10 +28,10 @@ jobs:
           distribution: 'adopt'
       - name: Echo input parameter.
         run: |
-          echo "Hello ${{ github.event.inputs.name }}!"
-          echo "- in ${{ github.event.inputs.home }}!"
+          echo "The Business Group ID is ${{ github.event.inputs.org }}"
+          echo "The Environment is ${{ github.event.inputs.env }}"
       
       - name: Upload the Mule application file to the release folder.
-        run: java -jar app.jar -gitrelease -org ${{ github.event.inputs.org }}! -env ${{ github.event.inputs.env }}!
+        run: java -jar app.jar -gitrelease -org ${{ github.event.inputs.org }} -env ${{ github.event.inputs.env }}  -gittoken ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         working-directory: .github/script

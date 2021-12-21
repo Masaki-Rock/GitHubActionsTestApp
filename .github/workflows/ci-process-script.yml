@@ -24,6 +24,6 @@ jobs:
         run: mvn clean package -DattachMuleSources
       
       - name: Upload the Mule application file to the release folder.
-        run: java -jar app.jar -gitupload
+        run: java -jar app.jar -gitupload -gittoken ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         working-directory: .github/script
