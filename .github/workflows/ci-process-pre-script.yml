@@ -1,4 +1,4 @@
-name: MuleSoft CI process script
+name: MuleSoft CI staging process script
 
 # Trigger settings
 on:
@@ -10,7 +10,7 @@ on:
 # Job settings
 jobs:
   # build script
-  application-build:
+  application-pre-build:
     runs-on: ubuntu-latest
     
     steps:
